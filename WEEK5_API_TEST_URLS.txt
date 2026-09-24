@@ -1,0 +1,10 @@
+http://127.0.0.1:8000/api/departments
+http://127.0.0.1:8000/api/employees
+http://127.0.0.1:8000/api/employees?page=1
+http://127.0.0.1:8000/api/employees?page=2
+http://127.0.0.1:8000/api/employees?per_page=5
+http://127.0.0.1:8000/api/employees?search=juan
+http://127.0.0.1:8000/api/employees?search=Information%20Technology
+http://127.0.0.1:8000/api/employees?department_id=1
+http://127.0.0.1:8000/api/employees?search=juan&department_id=1
+http://127.0.0.1:8000/api/employees?search=a&department_id=1&page=1&per_page=5

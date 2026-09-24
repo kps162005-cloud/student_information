@@ -1,0 +1,83 @@
+{
+  "info": {
+    "name": "Week 5 - Employee Management API - Solomon King Patrick G.",
+    "description": "Departments, relationships, pagination, searching, filtering, and employee CRUD for Week 5.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "variable": [
+    {"key": "base_url", "value": "http://127.0.0.1:8000/api"},
+    {"key": "department_id", "value": "1"},
+    {"key": "employee_id", "value": "1"}
+  ],
+  "item": [
+    {
+      "name": "Departments",
+      "item": [
+        {
+          "name": "List Departments",
+          "request": {"method": "GET", "header": [{"key": "Accept", "value": "application/json"}], "url": "{{base_url}}/departments"}
+        },
+        {
+          "name": "Create IT Department",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Accept", "value": "application/json"}, {"key": "Content-Type", "value": "application/json"}],
+            "body": {"mode": "raw", "raw": "{\n  \"name\": \"Information Technology\"\n}", "options": {"raw": {"language": "json"}}},
+            "url": "{{base_url}}/departments"
+          }
+        }
+      ]
+    },
+    {
+      "name": "Employees",
+      "item": [
+        {
+          "name": "List Employees",
+          "request": {"method": "GET", "header": [{"key": "Accept", "value": "application/json"}], "url": "{{base_url}}/employees"}
+        },
+        {
+          "name": "Pagination - Page 1, 5 Per Page",
+          "request": {"method": "GET", "header": [{"key": "Accept", "value": "application/json"}], "url": "{{base_url}}/employees?page=1&per_page=5"}
+        },
+        {
+          "name": "Search - Juan",
+          "request": {"method": "GET", "header": [{"key": "Accept", "value": "application/json"}], "url": "{{base_url}}/employees?search=juan"}
+        },
+        {
+          "name": "Search - Department Name",
+          "request": {"method": "GET", "header": [{"key": "Accept", "value": "application/json"}], "url": "{{base_url}}/employees?search=Information%20Technology"}
+        },
+        {
+          "name": "Filter by Department",
+          "request": {"method": "GET", "header": [{"key": "Accept", "value": "application/json"}], "url": "{{base_url}}/employees?department_id={{department_id}}"}
+        },
+        {
+          "name": "Combined Search Filter Pagination",
+          "request": {"method": "GET", "header": [{"key": "Accept", "value": "application/json"}], "url": "{{base_url}}/employees?search=a&department_id={{department_id}}&page=1&per_page=5"}
+        },
+        {
+          "name": "Show One Employee",
+          "request": {"method": "GET", "header": [{"key": "Accept", "value": "application/json"}], "url": "{{base_url}}/employees/{{employee_id}}"}
+        },
+        {
+          "name": "Create Employee",
+          "request": {
+            "method": "POST",
+            "header": [{"key": "Accept", "value": "application/json"}, {"key": "Content-Type", "value": "application/json"}],
+            "body": {"mode": "raw", "raw": "{\n  \"first_name\": \"Solomon\",\n  \"last_name\": \"Patrick\",\n  \"email\": \"solomon.week5@example.com\",\n  \"position\": \"IT Staff\",\n  \"department_id\": {{department_id}}\n}", "options": {"raw": {"language": "json"}}},
+            "url": "{{base_url}}/employees"
+          }
+        },
+        {
+          "name": "Transfer Employee Department",
+          "request": {
+            "method": "PATCH",
+            "header": [{"key": "Accept", "value": "application/json"}, {"key": "Content-Type", "value": "application/json"}],
+            "body": {"mode": "raw", "raw": "{\n  \"department_id\": 2\n}", "options": {"raw": {"language": "json"}}},
+            "url": "{{base_url}}/employees/{{employee_id}}"
+          }
+        }
+      ]
+    }
+  ]
+}
