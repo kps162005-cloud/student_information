@@ -1,0 +1,18 @@
+Employee Management API
+
+Employees
+
+GET    /employees
+       Get all employees
+
+POST   /employees
+       Create an employee
+
+GET    /employees/{id}
+       Get one employee
+
+PUT    /employees/{id}
+       Update an employee
+
+DELETE /employees/{id}
+       Delete an employee
